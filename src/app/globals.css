@@ -2,7 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tu peux ajouter tes styles personnalisés ici plus tard si besoin */
-html {
-  scroll-behavior: smooth;
+@layer base {
+  :root {
+    /* Copie ici les variables de ton ancien theme.css si nécessaire */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-slate-900 bg-white;
+  }
 }
