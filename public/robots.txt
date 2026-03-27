@@ -1,0 +1,7 @@
+# Blinked - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://blinked.io/sitemap.xml

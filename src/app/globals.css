@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tu peux ajouter tes styles personnalisés ici plus tard si besoin */
+html {
+  scroll-behavior: smooth;
+}
