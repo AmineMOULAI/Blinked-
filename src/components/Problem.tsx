@@ -63,7 +63,7 @@ export function Problem() {
             variants={itemVariants} 
             className="text-3xl md:text-5xl font-extrabold text-[#1F2937] leading-tight mb-8"
           >
-            Aujourd'hui, vos connaissances restent <span className="text-red-500">bloquées</span> :
+            Aujourd&apos;hui, vos connaissances restent <span className="text-red-500">bloquées</span> :
           </motion.h3>
         </motion.div>
 
@@ -122,7 +122,7 @@ export function Problem() {
               <div className="absolute inset-0 bg-black/10 opacity-20" />
               <p className="text-xl md:text-2xl text-blue-100 font-medium italic relative z-10">
                 <span className="text-4xl leading-none text-white opacity-40">“</span>
-                Résultat : perte de temps, frustration et manque d'efficacité au quotidien pour l'ensemble de vos équipes.
+                Résultat : perte de temps, frustration et manque d&apos;efficacité au quotidien pour l&apos;ensemble de vos équipes.
                 <span className="text-4xl leading-none text-white opacity-40">”</span>
               </p>
             </motion.div>

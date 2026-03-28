@@ -47,7 +47,6 @@ export function Testimonials() {
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.9, y: 30 },
-    // AJOUT DE 'as const' ICI POUR TYPESCRIPT
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
@@ -69,7 +68,7 @@ export function Testimonials() {
             <MessageCircleHeart size={16} /> Ils parlent de nous
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#1F2937] leading-tight mb-6">
-            Approuvé par des <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#1E40AF]">centaines d'équipes</span>
+            Approuvé par des <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#1E40AF]">centaines d&apos;équipes</span>
           </h2>
           <div className="flex items-center justify-center gap-2 text-lg font-bold text-gray-700">
             <div className="flex gap-1">
@@ -107,7 +106,7 @@ export function Testimonials() {
                 </div>
                 
                 <p className={`text-gray-800 font-bold leading-relaxed mb-8 ${testi.featured ? 'text-2xl md:text-3xl' : 'text-xl'}`}>
-                  "{testi.quote}"
+                  &quot;{testi.quote}&quot;
                 </p>
                 
                 <div className={`flex items-center gap-4 ${testi.featured ? 'justify-center' : ''}`}>

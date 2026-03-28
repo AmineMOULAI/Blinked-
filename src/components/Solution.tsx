@@ -46,7 +46,6 @@ export function Solution() {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
-    // AJOUT DE 'as const' ICI POUR TYPESCRIPT
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
@@ -82,6 +81,8 @@ export function Solution() {
             className="lg:col-span-5 relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-3xl transform rotate-3 scale-105 -z-10" />
+            
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="images/12309.jpg" alt="Aperçu de la solution" className="w-full h-auto rounded-3xl shadow-2xl relative z-10" />
             
             <motion.div
@@ -92,7 +93,7 @@ export function Solution() {
               <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl">✓</div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold text-gray-800">Conseil publié</span>
-                <span className="text-xs text-gray-500">À l'instant</span>
+                <span className="text-xs text-gray-500">À l&apos;instant</span>
               </div>
             </motion.div>
           </motion.div>
