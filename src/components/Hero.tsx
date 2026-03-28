@@ -1,4 +1,4 @@
-// src/components/Hero.tsx
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useRef } from "react";
@@ -48,13 +48,13 @@ export function Hero() {
             </div>
 
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-extrabold text-[#1F2937] leading-[1.1] mb-8 tracking-tight">
-              Transformez l'expérience <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#1E40AF]">
+              Transformez l&apos;expérience <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#1E40AF]">
                 collaborateur
               </span>
             </h1>
 
             <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-lg">
-              Une plateforme simple pour permettre à vos équipes d'échanger conseils, bonnes pratiques et retours d'expérience au quotidien.
+              Une plateforme simple pour permettre à vos équipes d&apos;échanger conseils, bonnes pratiques et retours d&apos;expérience au quotidien.
             </p>
 
             <div className="flex flex-wrap gap-5">
@@ -131,7 +131,7 @@ export function Hero() {
                   ))}
                 </div>
                 <p className="text-xs font-medium leading-relaxed">
-                  "Un outil simple mais redoutablement efficace"
+                  &quot;Un outil simple mais redoutablement efficace&quot;
                 </p>
               </motion.div>
             </motion.div>

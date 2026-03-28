@@ -1,4 +1,4 @@
-// src/components/Footer.tsx
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { motion } from "motion/react";
@@ -49,7 +49,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <img src="/images/logo_1.png" alt="Blinked Full Logo" className="h-16 w-auto mb-6 brightness-0 invert" />
             <p className="text-gray-400 mb-8 leading-relaxed">
-              La plateforme simple pour échanger conseils, bonnes pratiques et retours d'expérience au quotidien.
+              La plateforme simple pour échanger conseils, bonnes pratiques et retours d&apos;expérience au quotidien.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#3B82F6] transition-colors" aria-label="Twitter">
@@ -65,7 +65,7 @@ export function Footer() {
             <h3 className="text-sm font-bold text-gray-300 tracking-wider uppercase mb-6">Produit</h3>
             <ul className="space-y-4">
               <li><a href="#solution" className="text-gray-400 hover:text-white transition-colors">Fonctionnalités</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cas d'usage</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Cas d&apos;usage</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Tarifs</a></li>
             </ul>
           </div>
