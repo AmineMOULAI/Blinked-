@@ -18,7 +18,7 @@ import { Solution } from "@/components/Solution";
 import { Metrics } from "@/components/Metrics";
 import { Testimonials } from "@/components/Testimonials";
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       {/* Navigation principale */}
