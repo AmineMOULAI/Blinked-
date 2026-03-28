@@ -1,9 +1,14 @@
+// src/components/Hero.tsx
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 
+/**
+ * Composant Hero.
+ * Section principale d'introduction avec effets de parallaxe au défilement.
+ */
 export function Hero() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -11,7 +16,6 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Effets de parallaxe pour la profondeur au scroll
   const yText = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const yImage = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const rotateImage = useTransform(scrollYProgress, [0, 1], [0, 5]);
@@ -21,7 +25,7 @@ export function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#FDFDFF]"
     >
-      {/* --- FOND DYNAMIQUE --- */}
+      {/* Arrière-plan décoratif */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-50 rounded-full blur-[120px] opacity-60" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-50 rounded-full blur-[100px] opacity-60" />
@@ -30,7 +34,7 @@ export function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* --- CONTENU TEXTUEL --- */}
+          {/* Contenu textuel */}
           <motion.div 
             style={{ y: yText }}
             initial={{ opacity: 0, x: -50 }}
@@ -63,7 +67,7 @@ export function Hero() {
               </button>
             </div>
 
-            {/* Indicateur de confiance */}
+            {/* Social Proof */}
             <div className="mt-12 flex items-center gap-4 py-4 px-6 bg-white/50 backdrop-blur-md rounded-2xl border border-white/50 w-fit">
               <div className="flex -space-x-3">
                 {[1, 2, 3].map((i) => (
@@ -71,7 +75,7 @@ export function Hero() {
                     key={i}
                     src={`https://i.pravatar.cc/100?img=${i + 15}`} 
                     className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
-                    alt="User Avatar"
+                    alt="Utilisateur"
                   />
                 ))}
               </div>
@@ -82,7 +86,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* --- SCÈNE VISUELLE --- */}
+          {/* Composition visuelle */}
           <div className="lg:col-span-6 xl:col-span-7 relative">
             <motion.div 
               style={{ y: yImage, rotate: rotateImage }}
@@ -95,12 +99,11 @@ export function Hero() {
               >
                 <img
                   src="/images/5231.jpg"
-                  alt="Blinked Collaboration"
+                  alt="Interface Blinked Collaboration"
                   className="w-full h-auto drop-shadow-[0_35px_60px_rgba(0,0,0,0.1)] rounded-[3rem]"
                 />
               </motion.div>
 
-              {/* Badges flottants */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}

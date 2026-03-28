@@ -1,7 +1,8 @@
+// src/components/Metrics.tsx
 "use client";
 
-import { motion, useInView, animate } from "motion/react";
 import { useRef, useEffect, useState } from "react";
+import { motion, useInView, animate } from "motion/react";
 import { Target, Zap, Clock, TrendingUp } from "lucide-react";
 
 const metricsData = [
@@ -31,7 +32,9 @@ const metricsData = [
   },
 ];
 
-// Composant pour l'animation de compteur
+/**
+ * Utilitaire pour l'animation des nombres (compteur).
+ */
 function Counter({ value, unit }: { value: number; unit: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -39,13 +42,11 @@ function Counter({ value, unit }: { value: number; unit: string }) {
 
   useEffect(() => {
     if (isInView) {
-      // Pour les valeurs à décimale (comme 2.5), on configure animate différemment
       const isDecimal = !Number.isInteger(value);
-      const controls = animate(isDecimal ? 0 : 0, value, {
+      const controls = animate(0, value, {
         duration: 1.5,
         ease: "easeOut",
         onUpdate: (latest) => {
-          // Formatage de la valeur affichée (avec ou sans décimale)
           setDisplayValue(isDecimal ? latest.toFixed(1) : latest.toFixed(0));
         },
       });
@@ -60,35 +61,33 @@ function Counter({ value, unit }: { value: number; unit: string }) {
   );
 }
 
+/**
+ * Composant Metrics.
+ * Affiche les indicateurs de performance clés (KPIs) avec animation.
+ */
 export function Metrics() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Animation l'une après l'autre
-        delayChildren: 0.3,
-      },
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    // AJOUT DE 'as const' ICI POUR TYPESCRIPT
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      
-      {/* BACKGROUND DECOR */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-1/4 -right-1/4 w-[700px] h-[700px] bg-blue-50 rounded-full blur-3xl opacity-50" />
         <div className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-3xl opacity-50" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* TITRE CENTRÉ */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +103,6 @@ export function Metrics() {
           </h2>
         </motion.div>
 
-        {/* GRILLE DE MÉTRIQUES INTERACTIVES */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -116,11 +114,9 @@ export function Metrics() {
             <motion.div
               key={idx}
               variants={cardVariants}
-              // Micro-interaction au survol
               whileHover={{ scale: 1.05, y: -10 }}
               className={`relative bg-gradient-to-b ${metric.color} p-8 rounded-3xl border shadow-xl hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer overflow-hidden`}
             >
-              {/* Effet de brillance discret au survol */}
               <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
@@ -128,7 +124,6 @@ export function Metrics() {
                   {metric.icon}
                 </div>
                 
-                {/* L'animation de compteur */}
                 <div className="flex items-baseline gap-1 mb-3">
                   <Counter value={metric.value} unit={metric.unit} />
                 </div>

@@ -1,3 +1,4 @@
+// src/components/Testimonials.tsx
 "use client";
 
 import { motion } from "motion/react";
@@ -27,10 +28,14 @@ const testimonials = [
     role: "DRH",
     company: "Entreprise Cliente",
     gradient: "from-orange-50 to-white",
-    featured: true, // Cette carte sera plus grande
+    featured: true, 
   }
 ];
 
+/**
+ * Composant Testimonials.
+ * Affiche les retours clients sous forme de grille adaptative.
+ */
 export function Testimonials() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,20 +47,17 @@ export function Testimonials() {
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.9, y: 30 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    // AJOUT DE 'as const' ICI POUR TYPESCRIPT
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
   };
 
   return (
     <section id="testimonials" className="py-32 bg-[#F9FAFB] relative overflow-hidden">
-      
-      {/* BACKGROUND DECOR */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-50/50 to-transparent rounded-full blur-3xl opacity-70" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* TITRE DE LA SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +81,6 @@ export function Testimonials() {
           </div>
         </motion.div>
 
-        {/* GRILLE DES TÉMOIGNAGES (MASONRY-STYLE) */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

@@ -1,18 +1,14 @@
+// src/components/Header.tsx
 "use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
-import { cn } from "./ui/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "./ui/navigation-menu";
+import { Menu, X, ChevronDown } from "lucide-react";
 
+/**
+ * Composant Header (Navigation globale).
+ * Gère la navigation desktop et mobile avec un menu responsive.
+ */
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
@@ -32,7 +28,7 @@ export function Header() {
     >
       <nav className="w-full max-w-7xl h-20 bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-[2rem] px-6 md:px-10 flex items-center justify-between relative overflow-hidden">
         
-        {/* --- LOGO GAUCHE --- */}
+        {/* Logo */}
         <div className="flex-1 flex justify-start z-10">
           <a href="/" className="group flex items-center gap-2">
             <img src="/images/logo_2.png" alt="Blinked Icon" className="h-10 w-auto group-hover:rotate-12 transition-transform duration-300" />
@@ -42,7 +38,7 @@ export function Header() {
           </a>
         </div>
 
-        {/* --- NAVIGATION CENTRALE INTERACTIVE --- */}
+        {/* Navigation Desktop */}
         <div className="hidden md:flex items-center gap-1 relative">
           {navLinks.map((link) => (
             <a
@@ -67,7 +63,7 @@ export function Header() {
           ))}
         </div>
 
-        {/* --- CTA DROITE --- */}
+        {/* Actions Desktop */}
         <div className="hidden md:flex flex-1 justify-end items-center gap-4 z-10">
           <a href="#contact" className="text-sm font-bold text-gray-500 hover:text-[#1F2937] transition-colors">
             Nous contacter
@@ -78,16 +74,17 @@ export function Header() {
           </button>
         </div>
 
-        {/* --- MOBILE TOGGLE --- */}
+        {/* Toggle Menu Mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-[#1F2937] hover:bg-gray-100 rounded-xl transition-colors"
+          aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
-      {/* --- MOBILE MENU --- */}
+      {/* Menu Mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

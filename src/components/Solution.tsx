@@ -1,3 +1,4 @@
+// src/components/Solution.tsx
 "use client";
 
 import { motion } from "motion/react";
@@ -30,6 +31,10 @@ const features = [
   },
 ];
 
+/**
+ * Composant Solution.
+ * Présente les fonctionnalités principales du produit.
+ */
 export function Solution() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,7 +46,8 @@ export function Solution() {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    // AJOUT DE 'as const' ICI POUR TYPESCRIPT
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   return (
@@ -76,11 +82,8 @@ export function Solution() {
             className="lg:col-span-5 relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-3xl transform rotate-3 scale-105 -z-10" />
+            <img src="images/12309.jpg" alt="Aperçu de la solution" className="w-full h-auto rounded-3xl shadow-2xl relative z-10" />
             
-            {/* C'est ici que le chemin a été corrigé pour correspondre à ton dossier public */}
-            <img src="images/12309.jpg" alt="Solution Mockup" className="w-full h-auto rounded-3xl shadow-2xl relative z-10" />
-            
-            {/* Floating UI Elements */}
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
