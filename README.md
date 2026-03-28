@@ -2,7 +2,7 @@
 
 > La plateforme simple pour permettre à vos équipes d'échanger conseils, bonnes pratiques et retours d'expérience au quotidien.
 
-![Aperçu du projet](public/images/logo_1.png) 
+![Aperçu du projet](public/images/blinked.png) 
 ## 📖 À propos
 
 Aujourd'hui, dans de nombreuses entreprises, les connaissances restent bloquées dans des boucles d'e-mails infinies ou se perdent après des réunions non documentées. Résultat : une perte de temps et une frustration au quotidien pour les équipes.
